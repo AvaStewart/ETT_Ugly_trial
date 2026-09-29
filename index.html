@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do you trust me</title>
+
+<!--
+  HOW THIS FILE IS ORGANIZED
+  1. STYLE       : all colors, fonts and sizes are in the block right below. Change the values under ":root".
+  2. PAGE TOP    : title box and contents list.
+  3. SECTIONS    : each section is one <div class="box"> ... </div>. Copy, delete or reorder whole boxes freely.
+  4. IMAGE SLOTS : look for "IMAGE SLOT" comments. Replace the placeholder <div> with an <img> tag.
+  Search for "EDIT" to find the things you are most likely to change.
+-->
+
+<style>
+
+:root {
+  --page-bg:    #a9b8b0;   /* the wall behind everything */
+  --box-bg:     #fbfbf7;   /* inside of each box */
+  --title-bg:   #23327a;   /* box title bars */
+  --title-text: #ffffff;
+  --text:       #1a1a1a;
+  --link:       #1b3fa0;
+  --edge-light: #ffffff;   /* bevel highlight */
+  --edge-dark:  #5c5c5c;   /* bevel shadow */
+  --slot-bg:    #e4e4dc;   /* image placeholder */
+  --body-font:  Georgia, "Times New Roman", serif;
+  --ui-font:    Tahoma, Verdana, Arial, sans-serif;
+  --page-width: 780px;     /* fixed width, no responsiveness */
+}
+
+    .corner-image {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      width: 500px;      /* adjust size */
+      height: auto;
+      z-index: 1000;     /* keeps it above other content */
+    }
+
+
+body {
+  background-color: var(--page-bg);   /* shows if the background image fails to load */
+  /* EDIT: background image. Alternates:
+     https://i5.glitter-graphics.org/pub/2743/2743935jtp5qb8xe4.jpg  (rainbow plaid)
+     https://i2.glitter-graphics.org/pub/2732/2732222gz5pewdbq6.gif  (computer girl) */
+  background-image: url('https://i5.glitter-graphics.org/pub/2743/2743935jtp5qb8xe4.jpg');
+  background-attachment: fixed;
+  background-repeat: repeat;
+  overflow-y: auto;     /* vertical scrollbar */
+  overflow-x: hidden;   /* prevent horizontal scrolling */
+  color: var(--text);
+  font-family: var(--body-font);
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 30px 0 60px 0;
+}
+
+#page { width: var(--page-width); margin: 0 auto; }
+
+.box {
+  background: var(--box-bg);
+  border: 2px solid;
+  border-color: var(--edge-light) var(--edge-dark) var(--edge-dark) var(--edge-light);
+  margin-bottom: 22px;
+}
+.box-title {
+  background: var(--title-bg);
+  color: var(--title-text);
+  font-family: var(--ui-font);
+  font-size: 15px;
+  font-weight: bold;
+  padding: 4px 10px;
+}
+.box-body { padding: 14px 24px 8px 24px; }
+
+h1 { font-size: 34px; line-height: 1.2; margin: 10px 0 6px 0; font-weight: normal; }
+h2 { font-size: 24px; margin: 0 0 8px 0; font-weight: normal; border-bottom: 1px solid #999; }
+h3 { font-size: 18px; margin: 18px 0 4px 0; }
+p  { margin: 0 0 14px 0; }
+a  { color: var(--link); }
+.subtitle { font-style: italic; margin: 0 0 14px 0; }
+.small { font-size: 14px; }
+
+/* the sub-boxes used for each hypothesis */
+.hyp {
+  border: 1px solid #888;
+  background: #f0f0e8;
+  padding: 8px 14px 2px 14px;
+  margin-bottom: 14px;
+}
+.hyp h3 { margin-top: 2px; }
+
+/* image placeholders and captions */
+.slot {
+  background: var(--slot-bg);
+  border: 2px dashed #777;
+  font-family: var(--ui-font);
+  font-size: 13px;
+  text-align: center;
+  padding: 50px 10px;
+  margin: 4px 0 0 0;
+}
+.figure { margin: 6px 0 16px 0; }
+.figure img { display: block; max-width: 100%; }
+.caption { font-size: 14px; font-style: italic; margin-top: 4px; }
+
+ul.plain { margin: 0 0 14px 0; padding-left: 22px; }
+</style>
+</head>
+
+<body>
+
+
+  <img class="corner-image" src="ETT things/Uncannytitle.png" alt="Description of the image">
+
+<div id="page">
+
+<!-- ---------- 2. PAGE TOP ---------- -->
+<div class="box">
+  <div class="box-title">ClipArt_Uncanny.htm</div>
+  <div class="box-body">
+    <!-- EDIT: page title and subtitle -->
+    <h1>Clip Art and the Uncanny Valley</h1>
+    <p class="subtitle">On the drawings that shipped on CD-ROMs in the 1990s, and why they feel almost right.</p>
+
+    <p><b>Contents</b></p>
+    <ul class="plain">
+      <li><a href="#clipart">The clip art CD</a></li>
+      <li><a href="#mori">Mori and the uncanny valley</a></li>
+      <li><a href="#freud">Freud and the uncanny</a></li>
+      <li><a href="#hypotheses">Six hypotheses</a></li>
+      <li><a href="#design">The valley in graphic design</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ---------- 3. SECTIONS ---------- -->
+
+<!-- SECTION: the clip art CD -->
+<div class="box" id="clipart">
+  <div class="box-title">The clip art CD</div>
+  <div class="box-body">
+    <h2>The clip art CD</h2>
+
+    <p>In the 1990s you could walk into a software shop and buy a jewel case holding tens of thousands of ready-made images. Collections such as Microsoft Clip Gallery, Corel Gallery, ClickArt and Art Explosion were sold for word processors, newsletters, school reports and church bulletins. A disc was a physical object you owned, with a printed booklet, a catalog to flip through, and a license agreement in the box.</p>
+
+    <p>Most of the images were not bitmaps. Many were vector-style files, such as Windows Metafiles (WMF) or Computer Graphics Metafiles (CGM), or Encapsulated PostScript (EPS), built from shapes and fills. They scaled up without turning to pixels, and they could be recolored and ungrouped. Yet they also had none of the texture of a drawing or photograph. The lines are even, the gradients are stepped, and the shading follows a formula.</p>
+
+    <!-- IMAGE SLOT: replace the slot div with <img src="images/your-file.png" alt="describe it"> -->
+    <div class="figure">
+      <div class="slot">IMAGE SLOT: a clip art figure from your collection (a smiling businessperson works well)</div>
+      <div class="caption">EDIT: Caption. Where the image came from, which disc, what year.</div>
+    </div>
+
+    <p>These images sit in an odd place between two things people recognize. They are not the pixel art and GIFs of the indie web, which wear their limits openly and are loved for it. They are also not illustration, which has an author you can feel. Clip art was made to be anyone's, and to be used by anyone, for any purpose. The people in it have faces but no particular identity. This page argues that this in-between condition is a kind of uncanny valley, placed in graphic design rather than robotics.</p>
+  </div>
+</div>
+
+<!-- SECTION: Mori -->
+<div class="box" id="mori">
+  <div class="box-title">Mori and the uncanny valley</div>
+  <div class="box-body">
+    <h2>Mori and the uncanny valley</h2>
+
+    <p>In 1970 the Japanese roboticist Masahiro Mori published a short essay called <i>Bukimi no Tani</i> in the journal <i>Energy</i>. The title is usually translated as "The Uncanny Valley," though <i>bukimi</i> is closer to "eerie" or "creepy." Mori proposed a graph. As a robot or prosthetic hand becomes more humanlike, our affinity for it rises. Then, close to but short of fully human, affinity drops sharply into a valley, and it recovers only when the object becomes nearly indistinguishable from a real person.</p>
+
+    <p>Mori's examples were physical: an industrial robot at the low end, a stuffed toy and a humanoid robot in the middle, and at the bottom of the valley a corpse and a prosthetic hand that looks real but feels cold. He added that movement makes the effect stronger, so a zombie sits deeper in the valley than a still corpse. He advised designers to stay on the near side of the valley and aim for likable, not perfectly lifelike.</p>
+
+    <p>The essay was little read in English until Karl MacDorman and Norri Kageki published a translation in 2012. In the meantime, the phrase spread on its own, into animation, video games and film. Critics of the idea note that Mori drew the curve as an intuition, not a measurement, and that studies since then have given mixed results about whether the valley exists as a single smooth dip. It remains a useful name for a familiar feeling.</p>
+
+    <!-- IMAGE SLOT: a copy of Mori's graph, or your own redraw of it -->
+    <div class="figure">
+      <div class="slot">IMAGE SLOT: your own redraw of the uncanny valley graph</div>
+      <div class="caption">EDIT: Caption. Affinity on the vertical axis, human likeness on the horizontal.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: Freud -->
+<div class="box" id="freud">
+  <div class="box-title">Freud and the uncanny</div>
+  <div class="box-body">
+    <h2>Freud and the uncanny</h2>
+
+    <p>Half a century before Mori, the psychiatrist Ernst Jentsch wrote "On the Psychology of the Uncanny" (1906). He located the feeling in intellectual uncertainty: not knowing whether something is alive or dead, or whether a figure is a person or an automaton. Sigmund Freud answered him in his 1919 essay <i>Das Unheimliche</i>, usually translated as "The Uncanny."</p>
+
+    <p>Freud starts with the word. In German, <i>heimlich</i> means homely, familiar, belonging to the house. It also drifts toward meanings of hidden and secret. <i>Unheimlich</i>, the opposite, therefore names something that should feel familiar but has become strange. Freud's definition is that the uncanny is what was once known and comfortable, and has been repressed, and then returns.</p>
+
+    <p>He found examples in E.T.A. Hoffmann's story "The Sandman," including the lifelike doll Olympia, and in a list of recurring themes: doubles and doppelgängers, repetition of the same event or number, the sense that thoughts can make things happen, and the fear of losing one's eyes. He also pointed to old, discarded beliefs, such as the idea that objects have spirits, which modern people think they have outgrown but cannot fully shake. Freud believed the uncanny arises when such a belief seems suddenly confirmed.</p>
+
+    <p>Clip art fits several of Freud's themes without trying. It is full of doubles, since the same smiling worker appears in dozens of poses and the same face is stamped into every scene. Its figures are dolls that resemble people. And it is a familiar office and household vocabulary that now returns to us from an era we thought we had left behind, which is a small-scale version of Freud's return of the familiar.</p>
+  </div>
+</div>
+
+<!-- SECTION: hypotheses -->
+<div class="box" id="hypotheses">
+  <div class="box-title">Six hypotheses</div>
+  <div class="box-body">
+    <h2>Six hypotheses</h2>
+
+    <p>Researchers have offered several explanations for why near-human things unsettle us. They overlap and none has been settled. Each one is paired below with how it might apply to a clip art figure.</p>
+
+    <!-- EDIT: to add a hypothesis, copy one <div class="hyp"> block and change the text -->
+
+    <div class="hyp">
+      <h3>Categorical uncertainty</h3>
+      <p>We are uncomfortable when we cannot place something in a category, such as human or not human, alive or not alive. This idea runs back to Jentsch. Studies of morphed faces suggest discomfort peaks near the boundary between categories.</p>
+      <p><b>In clip art:</b> Is this a drawing, a diagram, a logo or a symbol? A figure with a gradient-shaded face and a blank stare is between a portrait and an icon.</p>
+    </div>
+
+    <div class="hyp">
+      <h3>Pathogen avoidance</h3>
+      <p>MacDorman and others proposed that a slightly wrong human appearance resembles signs of illness or death, so our disgust responses treat it as a possible source of infection. Under this view the valley is a side effect of a system that keeps us away from disease.</p>
+      <p><b>In clip art:</b> Waxy skin, flat color and lifeless eyes, especially in the photographic-style illustrations, look a little like a mannequin, or a body that is not quite healthy.</p>
+    </div>
+
+    <div class="hyp">
+      <h3>Mortality salience</h3>
+      <p>MacDorman and Hiroshi Ishiguro suggested that a near-human machine reminds us of death, of the body as a mechanism and a corpse. This connects to terror management theory, which holds that reminders of death provoke defensive reactions.</p>
+      <p><b>In clip art:</b> These are people who never age, tire or leave the frame. The immortal smiling figure is a sort of perfect, hollow body.</p>
+    </div>
+
+    <div class="hyp">
+      <h3>Violation of expectation</h3>
+      <p>When something looks human, we expect it to move, sound and behave like a human. If a single feature fails, such as stiff motion or a voice that does not match, the mismatch itself feels wrong.</p>
+      <p><b>In clip art:</b> A figure drawn with careful realism in the face but with flat, geometric hands, or a realistic person cut out on a solid color, breaks the visual rules of the surrounding page.</p>
+    </div>
+
+    <div class="hyp">
+      <h3>Mind perception</h3>
+      <p>Kurt Gray and Daniel Wegner (2012) argued that people see minds along two lines: agency (the capacity to act and plan) and experience (the capacity to feel). A machine that seems to have feelings is more disturbing than one that only seems to compute.</p>
+      <p><b>In clip art:</b> The expressions are fixed. Each figure appears to be feeling something (delight, concern, enthusiasm) with nobody there to feel it.</p>
+    </div>
+
+    <div class="hyp">
+      <h3>Dehumanization</h3>
+      <p>Some researchers propose that a near-human figure prompts us to think of the person it depicts as less than human, or as a thing that has been made. The discomfort then comes from seeing people treated as objects, or from the idea that we ourselves might be.</p>
+      <p><b>In clip art:</b> The stock worker stands in for all workers, and the stock family for all families. The people are anonymous and interchangeable by design.</p>
+    </div>
+
+    <p class="small">A caution: the experimental evidence for a valley is uneven, and different studies favor different explanations. A safer reading is that the valley is a family of related reactions, not one mechanism.</p>
+  </div>
+</div>
+
+<!-- SECTION: the valley in graphic design -->
+<div class="box" id="design">
+  <div class="box-title">The valley in graphic design</div>
+  <div class="box-body">
+    <h2>The valley in graphic design</h2>
+
+    <p>Mori drew his graph for robots, but the two axes can be renamed for images. Along the horizontal, replace "human likeness" with "how finished and authored an image looks." On the vertical, put how comfortable we feel looking at it.</p>
+
+    <ul class="plain">
+      <li><b>Left of the valley:</b> a pixel-art sprite, a GIF, a hand-drawn doodle. These openly show what they are, and the indie web loves them because their limits are visible.</li>
+      <li><b>In the valley:</b> the CD clip art figure. It aims at polish and realism, using gradients, faces and perspective, but the result is mass-produced, generic and slightly off.</li>
+      <li><b>Right of the valley:</b> a professional illustration or a photograph, where an author or a real subject is unmistakable.</li>
+    </ul>
+
+    <p>This is a claim about a feeling, not a proven result, and it is the reason for this page. It also relates to how things survive. A hand-made personal site or a piece of pixel art invites affection. A clip art CD invites something more complicated: recognition, a little unease, and some fondness for a world of manuals, cases and booklets that has mostly disappeared.</p>
+
+    <!-- IMAGE SLOT: a row of 3 to 4 examples going from "obviously simple" to "almost illustration" -->
+    <div class="figure">
+      <div class="slot">IMAGE SLOT: a row of clip art examples, from most simple to most realistic</div>
+      <div class="caption">EDIT: Caption. Name the discs each came from.</div>
+    </div>
+
+    <h3>A note on tangible media</h3>
+    <p>The disc matters. A CD of clip art is a bounded, physical collection. You could hold the whole library in one hand and browse it in a catalog before you used a single image. Placing the images back into a page with a booklet-and-case feeling is one way to treat them as artifacts, not as files.</p>
+  </div>
+</div>
+
+<style>
+  .star {
+    position: fixed;
+    pointer-events: none;
+    color: white;
+    text-shadow: 0 0 3px #000, 0 0 6px #23327a;
+    z-index: 2000;
+    user-select: none;
+  }
+</style>
+
+<script>
+  var lastTime = 0;
+
+  document.addEventListener("mousemove", function (e) {
+    var now = Date.now();
+    if (now - lastTime < 30) return;   // EDIT: lower = more stars
+    lastTime = now;
+
+    var star = document.createElement("div");
+    star.className = "star";
+    star.textContent = "★";
+    star.style.left = e.clientX + "px";
+    star.style.top = e.clientY + "px";
+    star.style.fontSize = (8 + Math.random() * 10) + "px";   // EDIT: star size
+    document.body.appendChild(star);
+
+    var x = e.clientX;
+    var y = e.clientY;
+    var drift = (Math.random() - 0.5) * 1.5;   // sideways drift
+    var speed = 1 + Math.random() * 1.5;       // starting fall speed
+    var life = 0;
+
+    function fall() {
+      life++;
+      speed += 0.08;                            // EDIT: gravity
+      y += speed;
+      x += drift;
+      star.style.left = x + "px";
+      star.style.top = y + "px";
+      star.style.opacity = 1 - life / 60;       // fades out
+      if (life < 60) {
+        requestAnimationFrame(fall);
+      } else {
+        star.remove();
+      }
+    }
+    requestAnimationFrame(fall);
+  });
+</script>
+
+<!-- SECTION: sources -->
+<div class="box" id="sources">
+  <div class="box-title">Sources</div>
+  <div class="box-body">
+    <h2>Sources</h2>
+    <!-- EDIT: add links and check details before publishing -->
+    <ul class="plain small">
+      <li>Mori, M. (1970). Bukimi no tani [The uncanny valley]. <i>Energy</i>, 7(4), 33–35. English translation by K. F. MacDorman and N. Kageki (2012), <i>IEEE Robotics &amp; Automation Magazine</i>, 19(2), 98–100.</li>
+      <li>Jentsch, E. (1906). On the psychology of the uncanny. <i>Psychiatrisch-Neurologische Wochenschrift</i>.</li>
+      <li>Freud, S. (1919). Das Unheimliche [The uncanny]. <i>Imago</i>, 5(5–6).</li>
+      <li>MacDorman, K. F., &amp; Ishiguro, H. (2006). The uncanny advantage of using androids in cognitive and social science research. <i>Interaction Studies</i>, 7(3), 297–337.</li>
+      <li>Gray, K., &amp; Wegner, D. M. (2012). Feeling robots and human zombies: Mind perception and the uncanny valley. <i>Cognition</i>, 125(1), 125–130.</li>
+      <li>Wang, S., Lilienfeld, S. O., &amp; Rochat, P. (2015). The uncanny valley: Existence and explanations. <i>Review of General Psychology</i>, 19(4), 393–407.</li>
+    </ul>
+    <p class="small">Last edited: EDIT the date here.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
